@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>حاسبة المعدل الدراسي - الجزائر | حساب معدل البكالوريا و البيام والابتدائي</title>
+<meta name="description" content="حاسبة المعدل الدراسي الجزائري لجميع المستويات - حساب معدل الابتدائي، المتوسط، البيام، الثانوي، البكالوريا. احسب معدلك بدقة مع المعاملات الرسمية.">
+<meta name="keywords" content="حساب, حساب بكالوريا, حساب بيام, حساب معدل, حساب معدل ابتدائي, حساب معدل متوسط, حساب معدل ثانوي, حساب معدل البكالوريا, حساب معدل شهادة التعليم المتوسط, حاسبة المعدل, حاسبة المعدل الجزائري, معدل الفصل, معدل السنة, حساب المعدل الفصلي, حساب المعدل السنوي, moyenne, calcul moyenne, calcul bac, calcul bem, حساب نقاط البكالوريا, حساب نقاط البيام, معدلات المواد, المعاملات, معاملات البكالوريا, معاملات شهادة التعليم المتوسط, معاملات الابتدائي, معاملات المتوسط, معاملات الثانوي, حساب معدل السنة الخامسة ابتدائي, حساب معدل الرابعة متوسط, حساب معدل اولى ثانوي, حساب معدل ثانية ثانوي, حساب معدل ثالثة ثانوي, علوم تجريبية, رياضيات, آداب وفلسفة, لغات أجنبية, تقني رياضي, تسيير واقتصاد, حساب معدل الشهادة, المعدل العام, نتائج البكالوريا, نتائج البيام, حساب معدل BEM, حساب معدل BAC, moyenne BAC, moyenne BEM, calcul de moyenne algérie, حساب المعدل بالمعاملات, حاسبة معدل الجزائر">
+<meta name="author" content="حاسبة المعدل الجزائري">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="حاسبة المعدل الدراسي - الجزائر">
+<meta property="og:description" content="احسب معدلك بدقة لجميع المستويات الدراسية في الجزائر: ابتدائي، متوسط، بيام، ثانوي، بكالوريا">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ar_DZ">
+<link rel="icon" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/svgs/solid/calculator.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-deep: #0a0e17;
+  --bg: #0f1422;
+  --bg-card: #161c2e;
+  --bg-card-hover: #1c2440;
+  --bg-input: #1a2138;
+  --bg-elevated: #1e2744;
+  --primary: #34d399;
+  --primary-dim: rgba(52,211,153,0.15);
+  --primary-glow: rgba(52,211,153,0.25);
+  --accent: #f59e0b;
+  --accent-dim: rgba(245,158,11,0.12);
+  --accent-glow: rgba(245,158,11,0.3);
+  --text: #e8ecf4;
+  --text-dim: #8892a8;
+  --text-muted: #5a6478;
+  --border: #252d44;
+  --border-light: #2a3350;
+  --danger: #ef4444;
+  --danger-dim: rgba(239,68,68,0.12);
+  --info: #60a5fa;
+  --info-dim: rgba(96,165,250,0.12);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --radius-xs: 6px;
+  --shadow: 0 4px 30px rgba(0,0,0,0.4);
+  --shadow-lg: 0 10px 50px rgba(0,0,0,0.5);
+  --shadow-glow: 0 0 40px rgba(52,211,153,0.08);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif;
+  background: var(--bg-deep);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* NOISE TEXTURE */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  padding: 2.5rem 1.5rem 3.5rem;
+  text-align: center;
+  overflow: hidden;
+  background: linear-gradient(170deg, #0a1628 0%, #0f1f35 40%, #0a1628 100%);
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(52,211,153,0.07) 0%, transparent 70%);
+  animation: float 10s ease-in-out infinite;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -150px; left: -150px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(245,158,11,0.05) 0%, transparent 70%);
+  animation: float 12s ease-in-out infinite reverse;
+}
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, -20px) scale(1.05); }
+}
+
+.hero-content { position: relative; z-index: 2; }
+.hero h1 {
+  font-family: 'Noto Kufi Arabic', sans-serif;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  font-weight: 900;
+  background: linear-gradient(135deg, #34d399, #60a5fa, #f59e0b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
+}
+.hero p {
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  font-weight: 400;
+}
+.hero .flag-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 1.2rem;
+}
+.flag-dots span {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+}
+.flag-dots span:nth-child(1) { background: #006633; box-shadow: 0 0 10px #006633; }
+.flag-dots span:nth-child(2) { background: #ffffff; box-shadow: 0 0 10px rgba(255,255,255,0.5); }
+.flag-dots span:nth-child(3) { background: #d21034; box-shadow: 0 0 10px #d21034; }
+
+/* LEVEL SELECTOR */
+.level-selector {
+  max-width: 960px;
+  margin: -2rem auto 1.5rem;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 10;
+}
+.level-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
+  background: var(--bg-card);
+  padding: 0.8rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border);
+}
+.level-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.9rem 0.3rem;
+  border: 2px solid transparent;
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: inherit;
+  text-align: center;
+  color: var(--text-dim);
+}
+.level-btn:hover {
+  border-color: var(--primary);
+  background: var(--primary-dim);
+  color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(52,211,153,0.1);
+}
+.level-btn.active {
+  border-color: var(--primary);
+  background: linear-gradient(135deg, rgba(52,211,153,0.2), rgba(52,211,153,0.08));
+  color: var(--primary);
+  box-shadow: 0 0 20px rgba(52,211,153,0.15);
+}
+.level-btn .icon { font-size: 1.6rem; filter: grayscale(0.3); }
+.level-btn.active .icon { filter: grayscale(0); }
+.level-btn .label { font-size: 0.7rem; font-weight: 700; line-height: 1.3; }
+
+/* MAIN */
+.main { max-width: 960px; margin: 0 auto; padding: 0 1rem 4rem; position: relative; z-index: 1; }
+
+/* SUB-SELECTOR */
+.sub-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1.2rem;
+  animation: slideUp 0.4s ease;
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.sub-btn {
+  padding: 0.75rem 1.6rem;
+  border: 1.5px solid var(--border);
+  border-radius: 50px;
+  background: var(--bg-card);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-dim);
+  transition: var(--transition);
+}
+.sub-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
+.sub-btn.active {
+  border-color: var(--accent);
+  background: linear-gradient(135deg, rgba(245,158,11,0.2), rgba(245,158,11,0.08));
+  color: var(--accent);
+  box-shadow: 0 0 15px rgba(245,158,11,0.1);
+}
+
+.branch-btn {
+  padding: 0.75rem 1.6rem;
+  border: 1.5px solid var(--border);
+  border-radius: 50px;
+  background: var(--bg-card);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-dim);
+  transition: var(--transition);
+}
+.branch-btn:hover { border-color: var(--info); color: var(--info); background: var(--info-dim); }
+.branch-btn.active {
+  border-color: var(--info);
+  background: linear-gradient(135deg, rgba(96,165,250,0.2), rgba(96,165,250,0.08));
+  color: var(--info);
+}
+
+/* INFO NOTE */
+.info-note {
+  background: var(--primary-dim);
+  border: 1px solid rgba(52,211,153,0.2);
+  border-radius: var(--radius-sm);
+  padding: 0.9rem 1.2rem;
+  font-size: 0.75rem;
+  color: var(--primary);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  animation: slideUp 0.3s ease;
+}
+
+/* CALCULATOR CARD */
+.calc-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  animation: slideUp 0.5s ease;
+  margin-bottom: 1.5rem;
+}
+.calc-header {
+  background: linear-gradient(135deg, var(--bg-elevated), var(--bg-card));
+  padding: 1.1rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.calc-header h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: 'Noto Kufi Arabic', sans-serif;
+  color: var(--text);
+}
+.formula-badge {
+  font-size: 0.62rem;
+  background: var(--primary-dim);
+  color: var(--primary);
+  padding: 0.35rem 0.8rem;
+  border-radius: 20px;
+  font-weight: 600;
+  border: 1px solid rgba(52,211,153,0.15);
+}
+
+/* TABLE */
+.table-wrap { overflow-x: auto; }
+.grade-table { width: 100%; border-collapse: collapse; }
+
+.grade-table thead th {
+  background: var(--bg-elevated);
+  padding: 0.75rem 0.5rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--text-dim);
+  text-align: center;
+  border-bottom: 2px solid var(--border);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+.grade-table tbody tr {
+  transition: var(--transition);
+  border-bottom: 1px solid var(--border);
+}
+.grade-table tbody tr:hover { background: rgba(52,211,153,0.03); }
+.grade-table tbody tr:nth-child(even) { background: rgba(255,255,255,0.01); }
+.grade-table tbody td {
+  padding: 0.55rem 0.4rem;
+  text-align: center;
+  font-size: 0.8rem;
+}
+.grade-table td:first-child {
+  text-align: right;
+  font-weight: 600;
+  font-size: 0.75rem;
+  padding-right: 1rem;
+  color: var(--text);
+  white-space: nowrap;
+}
+.coef-cell {
+  font-weight: 800 !important;
+  font-size: 0.9rem !important;
+  color: var(--accent) !important;
+  text-shadow: 0 0 20px rgba(245,158,11,0.3);
+}
+
+.grade-input {
+  width: 54px;
+  padding: 0.4rem 0.2rem;
+  text-align: center;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-xs);
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: var(--transition);
+  background: var(--bg-input);
+  color: var(--text);
+  outline: none;
+}
+.grade-input::placeholder { color: var(--text-muted); }
+.grade-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-dim), 0 0 15px rgba(52,211,153,0.1);
+}
+.grade-input.invalid { border-color: var(--danger); background: var(--danger-dim); }
+
+.subject-avg {
+  font-weight: 800;
+  color: var(--primary);
+  font-size: 0.85rem;
+  text-shadow: 0 0 15px rgba(52,211,153,0.3);
+}
+.subject-weighted {
+  font-weight: 600;
+  color: var(--accent);
+  font-size: 0.8rem;
+}
+
+/* RESULT */
+.result-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, var(--bg-elevated), var(--bg-card));
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+  position: relative;
+}
+.result-bar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+}
+.result-label { font-size: 0.9rem; font-weight: 600; color: var(--text-dim); }
+.result-value {
+  font-size: 2.2rem;
+  font-weight: 900;
+  font-family: 'Noto Kufi Arabic', sans-serif;
+  transition: var(--transition);
+}
+.result-value.pass { color: var(--primary); text-shadow: 0 0 30px rgba(52,211,153,0.4); }
+.result-value.fail { color: var(--danger); text-shadow: 0 0 30px rgba(239,68,68,0.4); }
+.result-value.na { color: var(--text-muted); }
+.result-out-of { font-size: 0.85rem; color: var(--text-muted); margin-right: 0.3rem; }
+
+.result-mention {
+  padding: 0.35rem 1.1rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: 1px solid;
+}
+.mention-excellent { background: rgba(52,211,153,0.12); color: #34d399; border-color: rgba(52,211,153,0.3); }
+.mention-good { background: rgba(96,165,250,0.12); color: #60a5fa; border-color: rgba(96,165,250,0.3); }
+.mention-ok { background: rgba(245,158,11,0.12); color: #f59e0b; border-color: rgba(245,158,11,0.3); }
+.mention-pass { background: rgba(148,163,184,0.12); color: #94a3b8; border-color: rgba(148,163,184,0.3); }
+.mention-fail { background: var(--danger-dim); color: var(--danger); border-color: rgba(239,68,68,0.3); }
+
+/* BONUS */
+.bonus-section {
+  padding: 1rem 1.5rem;
+  background: var(--accent-dim);
+  border-top: 1px solid rgba(245,158,11,0.15);
+}
+.bonus-section label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* ACTIONS */
+.action-btns {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+.btn {
+  padding: 0.55rem 1.3rem;
+  border: none;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.btn-primary {
+  background: linear-gradient(135deg, #34d399, #10b981);
+  color: #0a0e17;
+  box-shadow: 0 2px 15px rgba(52,211,153,0.2);
+}
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(52,211,153,0.35); }
+.btn-secondary { background: var(--bg-elevated); color: var(--text-dim); border: 1px solid var(--border); }
+.btn-secondary:hover { border-color: var(--text-muted); color: var(--text); }
+
+
+
+.hidden { display: none !important; }
+
+/* RESPONSIVE */
+@media (max-width: 700px) {
+  .level-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 600px) {
+  .level-grid { gap: 0.35rem; padding: 0.6rem; }
+  .level-btn { padding: 0.6rem 0.15rem; }
+  .level-btn .icon { font-size: 1.2rem; }
+  .level-btn .label { font-size: 0.6rem; }
+  .grade-input { width: 44px; font-size: 0.72rem; padding: 0.3rem 0.1rem; }
+  .grade-table thead th { font-size: 0.58rem; padding: 0.5rem 0.2rem; }
+  .grade-table tbody td { padding: 0.4rem 0.2rem; font-size: 0.72rem; }
+  .grade-table td:first-child { font-size: 0.66rem; padding-right: 0.5rem; }
+  .result-value { font-size: 1.6rem; }
+  .calc-header { padding: 0.8rem 1rem; flex-direction: column; gap: 0.5rem; }
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  border-top: 1px solid var(--border);
+  background: var(--bg);
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-content">
+    <h1><i class="fas fa-calculator" style="-webkit-text-fill-color:var(--primary);margin-left:0.4rem"></i> حاسبة المعدل الدراسي</h1>
+    <p>احسب معدلك بدقة لجميع المستويات الدراسية في الجزائر 🇩🇿</p>
+    <div class="flag-dots"><span></span><span></span><span></span></div>
+  </div>
+</div>
+
+<div class="level-selector">
+  <div class="level-grid" id="levelGrid">
+    <button class="level-btn active" onclick="selectLevel('primary')" data-level="primary">
+      <span class="icon">🏫</span><span class="label">الابتدائي</span>
+    </button>
+    <button class="level-btn" onclick="selectLevel('middle')" data-level="middle">
+      <span class="icon">🏛️</span><span class="label">المتوسط</span>
+    </button>
+    <button class="level-btn" onclick="selectLevel('bem')" data-level="bem">
+      <span class="icon">📝</span><span class="label">شهادة BEM</span>
+    </button>
+    <button class="level-btn" onclick="selectLevel('high')" data-level="high">
+      <span class="icon">🎓</span><span class="label">الثانوي</span>
+    </button>
+    <button class="level-btn" onclick="selectLevel('bac')" data-level="bac">
+      <span class="icon">🏆</span><span class="label">البكالوريا</span>
+    </button>
+
+  </div>
+</div>
+
+<div class="main">
+  <div id="subSelector" class="sub-selector hidden"></div>
+  <div id="branchSelector" class="sub-selector hidden"></div>
+  <div id="infoNote" class="info-note hidden"></div>
+  <div id="calculator" class="calc-card hidden"></div>
+</div>
+
+<div class="footer">
+  صُنع بـ ❤️ لطلاب الجزائر &bull; لا يحتاج إنترنت &bull; جميع الحسابات تتم محلياً في المتصفح
+</div>
+
+<script>
+// ========== SORT HELPER ==========
+function sortByCoef(subjects) {
+  return [...subjects].sort((a, b) => b.coef - a.coef);
+}
+
+// ========== DATA ==========
+const DATA = {
+  primary: {
+    years: {
+      'السنة الأولى ابتدائي': { subjects: sortByCoef([
+        {name:'اللغة العربية',coef:3},{name:'الرياضيات',coef:2},{name:'التربية الإسلامية',coef:1},
+        {name:'التربية العلمية والتكنولوجية',coef:1},{name:'التربية المدنية',coef:1},
+        {name:'التربية الفنية',coef:1},{name:'التربية البدنية',coef:1}
+      ])},
+      'السنة الثانية ابتدائي': { subjects: sortByCoef([
+        {name:'اللغة العربية',coef:3},{name:'الرياضيات',coef:2},{name:'التربية الإسلامية',coef:1},
+        {name:'التربية العلمية والتكنولوجية',coef:1},{name:'التربية المدنية',coef:1},
+        {name:'التربية الفنية',coef:1},{name:'التربية البدنية',coef:1}
+      ])},
+      'السنة الثالثة ابتدائي': { subjects: sortByCoef([
+        {name:'اللغة العربية',coef:3},{name:'الرياضيات',coef:2},{name:'اللغة الفرنسية',coef:2},
+        {name:'التربية العلمية والتكنولوجية',coef:2},{name:'التاريخ والجغرافيا',coef:1},
+        {name:'التربية الإسلامية',coef:1},{name:'التربية المدنية',coef:1},
+        {name:'التربية الفنية',coef:1},{name:'التربية البدنية',coef:1}
+      ])},
+      'السنة الرابعة ابتدائي': { subjects: sortByCoef([
+        {name:'اللغة العربية',coef:3},{name:'الرياضيات',coef:2},{name:'اللغة الفرنسية',coef:2},
+        {name:'التربية العلمية والتكنولوجية',coef:2},{name:'التاريخ والجغرافيا',coef:1},
+        {name:'التربية الإسلامية',coef:1},{name:'التربية المدنية',coef:1},
+        {name:'التربية الفنية',coef:1},{name:'التربية البدنية',coef:1}
+      ])},
+      'السنة الخامسة ابتدائي': { subjects: sortByCoef([
+        {name:'اللغة العربية',coef:3},{name:'الرياضيات',coef:2},{name:'اللغة الفرنسية',coef:2},
+        {name:'التربية العلمية والتكنولوجية',coef:2},{name:'التاريخ والجغرافيا',coef:1},
+        {name:'التربية الإسلامية',coef:1},{name:'التربية المدنية',coef:1},
+        {name:'التربية الفنية',coef:1},{name:'التربية البدنية',coef:1}
+      ])}
+    }
+  },
+  middle: {
+    years: {
+      'السنة الأولى متوسط': { subjects: sortByCoef([
+        {name:'الرياضيات',coef:2},{name:'اللغة العربية',coef:2},{name:'التاريخ والجغرافيا',coef:2},
+        {name:'العلوم الطبيعية',coef:1},{name:'العلوم الفيزيائية',coef:1},{name:'اللغة الفرنسية',coef:1},
+        {name:'اللغة الإنجليزية',coef:1},{name:'التربية الإسلامية',coef:1},{name:'التربية المدنية',coef:1},
+        {name:'التربية البدنية',coef:1},{name:'التربية الفنية',coef:1},{name:'الإعلام الآلي',coef:1}
+      ])},
+      'السنة الثانية متوسط': { subjects: sortByCoef([
+        {name:'الرياضيات',coef:3},{name:'اللغة العربية',coef:3},{name:'العلوم الطبيعية',coef:2},
+        {name:'العلوم الفيزيائية',coef:2},{name:'اللغة الفرنسية',coef:2},{name:'التاريخ والجغرافيا',coef:2},
+        {name:'اللغة الإنجليزية',coef:1},{name:'التربية الإسلامية',coef:1},{name:'التربية المدنية',coef:1},
+        {name:'التربية البدنية',coef:1},{name:'التربية الفنية',coef:1},{name:'الإعلام الآلي',coef:1}
+      ])},
+      'السنة الثالثة متوسط': { subjects: sortByCoef([
+        {name:'الرياضيات',coef:3},{name:'اللغة العربية',coef:3},{name:'العلوم الطبيعية',coef:2},
+        {name:'العلوم الفيزيائية',coef:2},{name:'اللغة الفرنسية',coef:2},{name:'التاريخ والجغرافيا',coef:2},
+        {name:'اللغة الإنجليزية',coef:1},{name:'التربية الإسلامية',coef:1},{name:'التربية المدنية',coef:1},
+        {name:'التربية البدنية',coef:1},{name:'التربية الفنية',coef:1},{name:'الإعلام الآلي',coef:1}
+      ])},
+      'السنة الرابعة متوسط': { subjects: sortByCoef([
+        {name:'اللغة العربية',coef:5},{name:'الرياضيات',coef:4},{name:'اللغة الفرنسية',coef:3},
+        {name:'التاريخ والجغرافيا',coef:3},{name:'العلوم الطبيعية',coef:2},{name:'العلوم الفيزيائية',coef:2},
+        {name:'اللغة الإنجليزية',coef:2},{name:'التربية الإسلامية',coef:2},{name:'التربية المدنية',coef:1},
+        {name:'التربية البدنية',coef:1},{name:'التربية الفنية',coef:1},{name:'الإعلام الآلي',coef:1}
+      ])}
+    }
+  },
+  bem: {
+    subjects: sortByCoef([
+      {name:'اللغة العربية',coef:5},{name:'الرياضيات',coef:4},{name:'اللغة الفرنسية',coef:3},
+      {name:'التاريخ والجغرافيا',coef:3},{name:'العلوم الطبيعية',coef:2},{name:'العلوم الفيزيائية',coef:2},
+      {name:'اللغة الإنجليزية',coef:2},{name:'التربية الإسلامية',coef:2},{name:'التربية المدنية',coef:1},
+      {name:'التربية البدنية',coef:1},{name:'التربية الفنية',coef:1}
+    ])
+  },
+  high: {
+    years: {
+      'السنة الأولى ثانوي': {
+        branches: {
+          'جذع مشترك علوم وتكنولوجيا': { subjects: sortByCoef([
+            {name:'الرياضيات',coef:5,type:'math'},{name:'علوم الطبيعة والحياة',coef:4,type:'tp'},
+            {name:'العلوم الفيزيائية والتكنولوجيا',coef:4,type:'tp'},{name:'اللغة العربية',coef:3,type:'standard'},
+            {name:'اللغة الفرنسية',coef:2,type:'tp'},{name:'اللغة الإنجليزية',coef:2,type:'tp'},
+            {name:'التاريخ والجغرافيا',coef:2,type:'histgeo'},{name:'العلوم الإسلامية',coef:2,type:'islamic'},
+            {name:'الإعلام الآلي',coef:2,type:'tp'},{name:'التكنولوجيا',coef:2,type:'tp'},
+            {name:'التربية البدنية',coef:1,type:'standard'},{name:'التربية الفنية',coef:1,type:'standard'}
+          ])},
+          'جذع مشترك آداب': { subjects: sortByCoef([
+            {name:'اللغة العربية',coef:5,type:'standard'},{name:'اللغة الفرنسية',coef:3,type:'tp'},
+            {name:'اللغة الإنجليزية',coef:3,type:'tp'},{name:'التاريخ والجغرافيا',coef:3,type:'histgeo'},
+            {name:'الرياضيات',coef:2,type:'math'},{name:'علوم الطبيعة والحياة',coef:2,type:'tp'},
+            {name:'العلوم الفيزيائية والتكنولوجيا',coef:2,type:'tp'},{name:'العلوم الإسلامية',coef:2,type:'islamic'},
+            {name:'الإعلام الآلي',coef:2,type:'tp'},{name:'التربية البدنية',coef:1,type:'standard'},
+            {name:'التربية الفنية',coef:1,type:'standard'}
+          ])}
+        }
+      },
+      'السنة الثانية ثانوي': {
+        branches: {
+          'علوم تجريبية': { subjects: sortByCoef([
+            {name:'العلوم الطبيعية',coef:6,type:'tp'},{name:'الرياضيات',coef:5,type:'math'},
+            {name:'العلوم الفيزيائية',coef:5,type:'tp'},{name:'اللغة العربية',coef:2,type:'standard'},
+            {name:'اللغة الفرنسية',coef:2,type:'tp'},{name:'اللغة الإنجليزية',coef:2,type:'tp'},
+            {name:'التاريخ والجغرافيا',coef:2,type:'histgeo'},{name:'العلوم الإسلامية',coef:2,type:'islamic'},
+            {name:'التربية البدنية',coef:1,type:'standard'},{name:'التربية الفنية',coef:1,type:'standard'}
+          ])},
+          'رياضيات': { subjects: sortByCoef([
+            {name:'الرياضيات',coef:7,type:'math'},{name:'العلوم الفيزيائية',coef:6,type:'tp'},
+            {name:'اللغة العربية',coef:2,type:'standard'},{name:'اللغة الفرنسية',coef:2,type:'tp'},
+            {name:'اللغة الإنجليزية',coef:2,type:'tp'},{name:'العلوم الطبيعية',coef:2,type:'tp'},
+            {name:'التاريخ والجغرافيا',coef:2,type:'histgeo'},{name:'العلوم الإسلامية',coef:2,type:'islamic'},
+            {name:'التربية البدنية',coef:1,type:'standard'},{name:'التربية الفنية',coef:1,type:'standard'}
+          ])},
+          'تقني رياضي': { subjects: sortByCoef([
+            {name:'الرياضيات',coef:6,type:'math'},{name:'التكنولوجيا',coef:6,type:'tp'},
+            {name:'العلوم الفيزيائية',coef:5,type:'tp'},{name:'اللغة العربية',coef:2,type:'standard'},
+            {name:'اللغة الفرنسية',coef:2,type:'tp'},{name:'اللغة الإنجليزية',coef:2,type:'tp'},
+            {name:'التاريخ والجغرافيا',coef:2,type:'histgeo'},{name:'العلوم الإسلامية',coef:2,type:'islamic'},
+            {name:'التربية البدنية',coef:1,type:'standard'}
+          ])},
+          'تسيير واقتصاد': { subjects: sortByCoef([
+            {name:'التسيير المحاسبي والمالي',coef:5,type:'tp'},{name:'الاقتصاد والمناجمنت',coef:4,type:'tp'},
+            {name:'الرياضيات',coef:3,type:'math'},{name:'التاريخ والجغرافيا',coef:3,type:'histgeo'},
+            {name:'اللغة العربية',coef:2,type:'standard'},{name:'اللغة الفرنسية',coef:2,type:'tp'},
+            {name:'اللغة الإنجليزية',coef:2,type:'tp'},{name:'العلوم الإسلامية',coef:2,type:'islamic'},
+            {name:'القانون',coef:2,type:'standard'},{name:'التربية البدنية',coef:1,type:'standard'},
+            {name:'التربية الفنية',coef:1,type:'standard'}
+          ])},
+          'آداب وفلسفة': { subjects: sortByCoef([
+            {name:'اللغة العربية',coef:5,type:'standard'},{name:'الفلسفة',coef:5,type:'standard'},
+            {name:'التاريخ والجغرافيا',coef:4,type:'histgeo'},{name:'اللغة الفرنسية',coef:3,type:'tp'},
+            {name:'اللغة الإنجليزية',coef:3,type:'tp'},{name:'الرياضيات',coef:2,type:'math'},
+            {name:'العلوم الفيزيائية',coef:2,type:'tp'},{name:'العلوم الطبيعية',coef:2,type:'tp'},
+            {name:'العلوم الإسلامية',coef:2,type:'islamic'},{name:'التربية البدنية',coef:1,type:'standard'},
+            {name:'التربية الفنية',coef:1,type:'standard'}
+          ])},
+          'لغات أجنبية': { subjects: sortByCoef([
+            {name:'اللغة العربية',coef:4,type:'standard'},{name:'اللغة الفرنسية',coef:4,type:'tp'},
+            {name:'اللغة الإنجليزية',coef:4,type:'tp'},{name:'اللغة الأجنبية الثالثة',coef:4,type:'tp'},
+            {name:'التاريخ والجغرافيا',coef:4,type:'histgeo'},{name:'الرياضيات',coef:2,type:'math'},
+            {name:'العلوم الإسلامية',coef:2,type:'islamic'},{name:'التربية البدنية',coef:1,type:'standard'},
+            {name:'التربية الفنية',coef:1,type:'standard'}
+          ])}
+        }
+      },
+      'السنة الثالثة ثانوي': {
+        branches: {
+          'علوم تجريبية': { subjects: sortByCoef([
+            {name:'العلوم الطبيعية',coef:6,type:'tp'},{name:'الرياضيات',coef:5,type:'math'},
+            {name:'العلوم الفيزيائية',coef:5,type:'tp'},{name:'اللغة العربية',coef:3,type:'standard'},
+            {name:'اللغة الفرنسية',coef:2,type:'tp'},{name:'اللغة الإنجليزية',coef:2,type:'tp'},
+            {name:'التاريخ والجغرافيا',coef:2,type:'histgeo'},{name:'العلوم الإسلامية',coef:2,type:'islamic'},
+            {name:'الفلسفة',coef:2,type:'standard'},{name:'التربية البدنية',coef:1,type:'standard'}
+          ])},
+          'رياضيات': { subjects: sortByCoef([
+            {name:'الرياضيات',coef:7,type:'math'},{name:'العلوم الفيزيائية',coef:6,type:'tp'},
+            {name:'اللغة العربية',coef:3,type:'standard'},{name:'اللغة الفرنسية',coef:2,type:'tp'},
+            {name:'اللغة الإنجليزية',coef:2,type:'tp'},{name:'العلوم الطبيعية',coef:2,type:'tp'},
+            {name:'التاريخ والجغرافيا',coef:2,type:'histgeo'},{name:'العلوم الإسلامية',coef:2,type:'islamic'},
+            {name:'الفلسفة',coef:2,type:'standard'},{name:'التربية البدنية',coef:1,type:'standard'}
+          ])},
+          'تقني رياضي': { subjects: sortByCoef([
+            {name:'التكنولوجيا',coef:7,type:'tp'},{name:'الرياضيات',coef:6,type:'math'},
+            {name:'العلوم الفيزيائية',coef:6,type:'tp'},{name:'اللغة العربية',coef:3,type:'standard'},
+            {name:'اللغة الفرنسية',coef:2,type:'tp'},{name:'اللغة الإنجليزية',coef:2,type:'tp'},
+            {name:'التاريخ والجغرافيا',coef:2,type:'histgeo'},{name:'العلوم الإسلامية',coef:2,type:'islamic'},
+            {name:'الفلسفة',coef:2,type:'standard'},{name:'التربية البدنية',coef:1,type:'standard'}
+          ])},
+          'تسيير واقتصاد': { subjects: sortByCoef([
+            {name:'التسيير المحاسبي والمالي',coef:6,type:'tp'},{name:'الرياضيات',coef:5,type:'math'},
+            {name:'الاقتصاد والمناجمنت',coef:5,type:'tp'},{name:'التاريخ والجغرافيا',coef:4,type:'histgeo'},
+            {name:'اللغة العربية',coef:3,type:'standard'},{name:'اللغة الفرنسية',coef:2,type:'tp'},
+            {name:'اللغة الإنجليزية',coef:2,type:'tp'},{name:'العلوم الإسلامية',coef:2,type:'islamic'},
+            {name:'الفلسفة',coef:2,type:'standard'},{name:'القانون',coef:2,type:'standard'},
+            {name:'التربية البدنية',coef:1,type:'standard'}
+          ])},
+          'آداب وفلسفة': { subjects: sortByCoef([
+            {name:'اللغة العربية',coef:6,type:'standard'},{name:'الفلسفة',coef:6,type:'standard'},
+            {name:'التاريخ والجغرافيا',coef:4,type:'histgeo'},{name:'اللغة الفرنسية',coef:3,type:'tp'},
+            {name:'اللغة الإنجليزية',coef:3,type:'tp'},{name:'الرياضيات',coef:2,type:'math'},
+            {name:'العلوم الإسلامية',coef:2,type:'islamic'},{name:'التربية البدنية',coef:1,type:'standard'}
+          ])},
+          'لغات أجنبية': { subjects: sortByCoef([
+            {name:'اللغة العربية',coef:5,type:'standard'},{name:'اللغة الفرنسية',coef:5,type:'tp'},
+            {name:'اللغة الإنجليزية',coef:5,type:'tp'},{name:'اللغة الأجنبية الثالثة',coef:4,type:'tp'},
+            {name:'التاريخ والجغرافيا',coef:2,type:'histgeo'},{name:'الرياضيات',coef:2,type:'math'},
+            {name:'العلوم الإسلامية',coef:2,type:'islamic'},{name:'الفلسفة',coef:2,type:'standard'},
+            {name:'التربية البدنية',coef:1,type:'standard'}
+          ])}
+        }
+      }
+    }
+  },
+  bac: {
+    branches: {
+      'علوم تجريبية': { subjects: sortByCoef([{name:'العلوم الطبيعية',coef:6},{name:'الرياضيات',coef:5},{name:'العلوم الفيزيائية',coef:5},{name:'اللغة العربية',coef:3},{name:'اللغة الفرنسية',coef:2},{name:'اللغة الإنجليزية',coef:2},{name:'التاريخ والجغرافيا',coef:2},{name:'العلوم الإسلامية',coef:2},{name:'الفلسفة',coef:2},{name:'التربية البدنية',coef:1}])},
+      'رياضيات': { subjects: sortByCoef([{name:'الرياضيات',coef:7},{name:'العلوم الفيزيائية',coef:6},{name:'اللغة العربية',coef:3},{name:'اللغة الفرنسية',coef:2},{name:'اللغة الإنجليزية',coef:2},{name:'العلوم الطبيعية',coef:2},{name:'التاريخ والجغرافيا',coef:2},{name:'العلوم الإسلامية',coef:2},{name:'الفلسفة',coef:2},{name:'التربية البدنية',coef:1}])},
+      'تقني رياضي': { subjects: sortByCoef([{name:'التكنولوجيا',coef:7},{name:'الرياضيات',coef:6},{name:'العلوم الفيزيائية',coef:6},{name:'اللغة العربية',coef:3},{name:'اللغة الفرنسية',coef:2},{name:'اللغة الإنجليزية',coef:2},{name:'التاريخ والجغرافيا',coef:2},{name:'العلوم الإسلامية',coef:2},{name:'الفلسفة',coef:2},{name:'التربية البدنية',coef:1}])},
+      'تسيير واقتصاد': { subjects: sortByCoef([{name:'التسيير المحاسبي والمالي',coef:6},{name:'الرياضيات',coef:5},{name:'الاقتصاد والمناجمنت',coef:5},{name:'التاريخ والجغرافيا',coef:4},{name:'اللغة العربية',coef:3},{name:'اللغة الفرنسية',coef:2},{name:'اللغة الإنجليزية',coef:2},{name:'العلوم الإسلامية',coef:2},{name:'الفلسفة',coef:2},{name:'القانون',coef:2},{name:'التربية البدنية',coef:1}])},
+      'آداب وفلسفة': { subjects: sortByCoef([{name:'اللغة العربية',coef:6},{name:'الفلسفة',coef:6},{name:'التاريخ والجغرافيا',coef:4},{name:'اللغة الفرنسية',coef:3},{name:'اللغة الإنجليزية',coef:3},{name:'الرياضيات',coef:2},{name:'العلوم الإسلامية',coef:2},{name:'التربية البدنية',coef:1}])},
+      'لغات أجنبية': { subjects: sortByCoef([{name:'اللغة العربية',coef:5},{name:'اللغة الفرنسية',coef:5},{name:'اللغة الإنجليزية',coef:5},{name:'اللغة الأجنبية الثالثة',coef:4},{name:'التاريخ والجغرافيا',coef:2},{name:'الرياضيات',coef:2},{name:'العلوم الإسلامية',coef:2},{name:'الفلسفة',coef:2},{name:'التربية البدنية',coef:1}])}
+    }
+  },
+
+};
+
+// ========== STATE ==========
+let currentLevel = 'primary';
+let currentSub = null;
+let currentBranch = null;
+
+
+// ========== UI ==========
+function selectLevel(level) {
+  currentLevel = level;
+  currentSub = null;
+  currentBranch = null;
+  document.querySelectorAll('.level-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector(`[data-level="${level}"]`).classList.add('active');
+  renderSubSelector();
+}
+
+function renderSubSelector() {
+  const subEl = document.getElementById('subSelector');
+  const branchEl = document.getElementById('branchSelector');
+  const infoEl = document.getElementById('infoNote');
+  const calcEl = document.getElementById('calculator');
+  subEl.innerHTML = ''; subEl.classList.add('hidden');
+  branchEl.innerHTML = ''; branchEl.classList.add('hidden');
+  infoEl.classList.add('hidden');
+  calcEl.classList.add('hidden');
+
+  if (currentLevel === 'primary') {
+    showSubButtons(Object.keys(DATA.primary.years), 'sub-btn', (y) => { currentSub = y; renderCalculator(); });
+    showInfo('معدل المادة = ((المراقبة المستمرة + الفرض) ÷ 2 + الاختبار × 2) ÷ 3 ثم × المعامل');
+  } else if (currentLevel === 'middle') {
+    showSubButtons(Object.keys(DATA.middle.years), 'sub-btn', (y) => { currentSub = y; renderCalculator(); });
+    showInfo('معدل المادة = ((المراقبة المستمرة + الفرض) ÷ 2 + الاختبار × 2) ÷ 3 ثم × المعامل');
+  } else if (currentLevel === 'bem') {
+    showInfo('شهادة التعليم المتوسط BEM — أدخل علامة كل مادة /20 ثم المعدل = Σ(علامة × معامل) ÷ Σمعاملات');
+    currentSub = 'bem'; renderCalculator();
+  } else if (currentLevel === 'high') {
+    showSubButtons(Object.keys(DATA.high.years), 'sub-btn', (y) => { currentSub = y; currentBranch = null; renderBranches(); });
+    showInfo('الرياضيات/إسلامية/تاريخ: ((فرض + تقويم) + اختبار×2) ÷ 4 — باقي المواد: ((فرض + تقويم + ع.ت) + اختبار×2) ÷ 5');
+  } else if (currentLevel === 'bac') {
+    showSubButtons(Object.keys(DATA.bac.branches), 'sub-btn', (b) => { currentSub = b; renderCalculator(); });
+    showInfo('البكالوريا — أدخل علامة كل مادة /20 ثم المعدل = Σ(علامة × معامل) ÷ Σمعاملات');
+  }
+}
+
+function showSubButtons(items, cls, callback) {
+  const subEl = document.getElementById('subSelector');
+  subEl.classList.remove('hidden');
+  subEl.innerHTML = items.map(item => `<button class="${cls}" data-val="${item}">${item}</button>`).join('');
+  subEl.querySelectorAll('button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      subEl.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      callback(btn.dataset.val);
+    });
+  });
+}
+
+function showInfo(text) {
+  const el = document.getElementById('infoNote');
+  el.innerHTML = `<strong>📐 طريقة الحساب:</strong> ${text}`;
+  el.classList.remove('hidden');
+}
+
+function renderBranches() {
+  const branchEl = document.getElementById('branchSelector');
+  const calcEl = document.getElementById('calculator');
+  calcEl.classList.add('hidden');
+  const branches = Object.keys(DATA.high.years[currentSub].branches);
+  branchEl.classList.remove('hidden');
+  branchEl.innerHTML = branches.map(b => `<button class="branch-btn" data-val="${b}">${b}</button>`).join('');
+  branchEl.querySelectorAll('button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      branchEl.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentBranch = btn.dataset.val;
+      renderCalculator();
+    });
+  });
+}
+
+function renderCalculator() {
+  const calcEl = document.getElementById('calculator');
+  let subjects, formula, title;
+  if (currentLevel === 'primary') { subjects = DATA.primary.years[currentSub].subjects; formula = 'primary'; title = currentSub; }
+  else if (currentLevel === 'middle') { subjects = DATA.middle.years[currentSub].subjects; formula = 'middle'; title = currentSub; }
+  else if (currentLevel === 'bem') { subjects = DATA.bem.subjects; formula = 'bem'; title = 'شهادة التعليم المتوسط BEM'; }
+  else if (currentLevel === 'high') { if (!currentBranch) return; subjects = DATA.high.years[currentSub].branches[currentBranch].subjects; formula = 'high'; title = `${currentSub} — ${currentBranch}`; }
+  else if (currentLevel === 'bac') { subjects = DATA.bac.branches[currentSub].subjects; formula = 'bac'; title = `بكالوريا — ${currentSub}`; }
+
+
+  let headers, rows;
+  if (formula === 'primary' || formula === 'middle') {
+    headers = '<th>المادة</th><th>المعامل</th><th>م. مستمرة</th><th>الفرض</th><th>الاختبار</th><th>المعدل</th><th>×المعامل</th>';
+    rows = subjects.map((s,i) => `<tr><td>${s.name}</td><td class="coef-cell">${s.coef}</td><td><input class="grade-input" type="number" min="0" max="20" step="0.25" data-row="${i}" data-field="cont" oninput="calc()"></td><td><input class="grade-input" type="number" min="0" max="20" step="0.25" data-row="${i}" data-field="fard" oninput="calc()"></td><td><input class="grade-input" type="number" min="0" max="20" step="0.25" data-row="${i}" data-field="exam" oninput="calc()"></td><td class="subject-avg" id="a${i}">—</td><td class="subject-weighted" id="w${i}">—</td></tr>`).join('');
+  } else if (formula === 'high') {
+    headers = '<th>المادة</th><th>المعامل</th><th>تقويم</th><th>فرض</th><th>ع.ت</th><th>اختبار</th><th>المعدل</th><th>×المعامل</th>';
+    rows = subjects.map((s,i) => {
+      const tp = s.type === 'tp';
+      return `<tr><td>${s.name}</td><td class="coef-cell">${s.coef}</td><td><input class="grade-input" type="number" min="0" max="20" step="0.25" data-row="${i}" data-field="cont" oninput="calc()"></td><td><input class="grade-input" type="number" min="0" max="20" step="0.25" data-row="${i}" data-field="fard" oninput="calc()"></td><td>${tp?`<input class="grade-input" type="number" min="0" max="20" step="0.25" data-row="${i}" data-field="tp" oninput="calc()">`:'<span style="color:var(--text-muted)">—</span>'}</td><td><input class="grade-input" type="number" min="0" max="20" step="0.25" data-row="${i}" data-field="exam" oninput="calc()"></td><td class="subject-avg" id="a${i}">—</td><td class="subject-weighted" id="w${i}">—</td></tr>`;
+    }).join('');
+  } else if (formula === 'bem' || formula === 'bac') {
+    headers = '<th>المادة</th><th>المعامل</th><th>العلامة /20</th><th>×المعامل</th>';
+    rows = subjects.map((s,i) => `<tr><td>${s.name}</td><td class="coef-cell">${s.coef}</td><td><input class="grade-input" type="number" min="0" max="20" step="0.25" data-row="${i}" data-field="grade" oninput="calc()"></td><td class="subject-weighted" id="w${i}">—</td></tr>`).join('');
+  }
+
+  const fLabel = {primary:'(م.م+فرض)÷2 ← (+اختبار×2)÷3',middle:'(م.م+فرض)÷2 ← (+اختبار×2)÷3',high:'÷4 أو ÷5 حسب المادة',bem:'علامة × معامل',bac:'علامة × معامل'}[formula];
+
+  calcEl.innerHTML = `
+    <div class="calc-header"><h2>${title}</h2><span class="formula-badge">${fLabel}</span></div>
+    <div class="table-wrap"><table class="grade-table" id="gt"><thead><tr>${headers}</tr></thead><tbody>${rows}</tbody></table></div>
+    ${formula==='high'?`<div class="bonus-section"><label>📖 نقطة تثمين المطالعة والمشاريع (ما فوق 10 فقط): <input class="grade-input" type="number" min="0" max="20" step="0.25" id="bonus" oninput="calc()" style="margin-right:0.5rem"></label></div>`:''}
+    <div class="result-bar"><span class="result-label">المعدل العام:</span><div><span class="result-value na" id="rv">——</span><span class="result-out-of">/ 20</span></div><span id="rm"></span></div>
+    <div class="action-btns"><button class="btn btn-secondary" onclick="reset()">🔄 مسح الكل</button></div>`;
+  calcEl.classList.remove('hidden');
+  calcEl.dataset.f = formula;
+  calcEl.dataset.n = subjects.length;
+  calcEl.dataset.s = JSON.stringify(subjects);
+}
+
+function gv(r, f) {
+  const inp = document.querySelector(`input[data-row="${r}"][data-field="${f}"]`);
+  if (!inp) return null;
+  const v = parseFloat(inp.value);
+  if (isNaN(v)) return null;
+  if (v < 0 || v > 20) { inp.classList.add('invalid'); return null; }
+  inp.classList.remove('invalid');
+  return v;
+}
+
+function calc() {
+  const ce = document.getElementById('calculator');
+  const f = ce.dataset.f, n = +ce.dataset.n, subs = JSON.parse(ce.dataset.s);
+  let tw = 0, tc = 0;
+  for (let i = 0; i < n; i++) {
+    const s = subs[i]; let avg = null;
+    if (f === 'primary' || f === 'middle') {
+      const c = gv(i,'cont'), d = gv(i,'fard'), e = gv(i,'exam');
+      if (c !== null && d !== null && e !== null) avg = ((c + d) / 2 + e * 2) / 3;
+    } else if (f === 'high') {
+      const c = gv(i,'cont'), d = gv(i,'fard'), e = gv(i,'exam'), t = gv(i,'tp'), tp = s.type;
+      if (tp==='math'||tp==='islamic'||tp==='histgeo'||tp==='standard') {
+        if (c!==null&&d!==null&&e!==null) avg = ((d+c)+e*2)/4;
+      } else if (tp==='tp') {
+        if (c!==null&&d!==null&&e!==null&&t!==null) avg = ((d+c+t)+e*2)/5;
+      }
+    } else if (f === 'bem' || f === 'bac') {
+      const g = gv(i,'grade'); if (g !== null) avg = g;
+    }
+    if (avg !== null) {
+      avg = Math.round(avg*100)/100;
+      const w = avg * s.coef; tw += w; tc += s.coef;
+      const ae = document.getElementById(`a${i}`); if (ae) ae.textContent = avg.toFixed(2);
+      const we = document.getElementById(`w${i}`); if (we) we.textContent = w.toFixed(2);
+    }
+  }
+  if (f === 'high') { const b = document.getElementById('bonus'); if (b) { const bv = parseFloat(b.value); if (!isNaN(bv) && bv > 10) tw += (bv - 10); } }
+  const rv = document.getElementById('rv'), rm = document.getElementById('rm');
+  if (tc > 0) {
+    const m = Math.round(tw/tc*100)/100;
+    rv.textContent = m.toFixed(2);
+    rv.className = 'result-value ' + (m >= 10 ? 'pass' : 'fail');
+    let mt = '', mc = '';
+    if (m>=16) { mt='ممتاز 🌟'; mc='mention-excellent'; }
+    else if (m>=14) { mt='جيد جداً 🎯'; mc='mention-good'; }
+    else if (m>=12) { mt='جيد 👍'; mc='mention-ok'; }
+    else if (m>=10) { mt='مقبول ✓'; mc='mention-pass'; }
+    else { mt='غير مقبول ✗'; mc='mention-fail'; }
+    rm.innerHTML = `<span class="result-mention ${mc}">${mt}</span>`;
+  } else { rv.textContent = '——'; rv.className = 'result-value na'; rm.innerHTML = ''; }
+}
+
+function reset() {
+  document.querySelectorAll('.grade-input').forEach(i => { i.value = ''; i.classList.remove('invalid'); });
+  document.querySelectorAll('[id^="a"]').forEach(e => { if (/^a\d+$/.test(e.id)) e.textContent = '—'; });
+  document.querySelectorAll('[id^="w"]').forEach(e => { if (/^w\d+$/.test(e.id)) e.textContent = '—'; });
+  const rv = document.getElementById('rv'); if (rv) { rv.textContent = '——'; rv.className = 'result-value na'; }
+  const rm = document.getElementById('rm'); if (rm) rm.innerHTML = '';
+}
+
+selectLevel('primary');
+</script>
+</body>
+</html>
