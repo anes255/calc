@@ -488,18 +488,7 @@ body::before {
 </style>
 </head>
 <body>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6195552819636371"
-     crossorigin="anonymous"></script>
-<!-- ad -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-6195552819636371"
-     data-ad-slot="1852004530"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+
 <div class="hero">
   <div class="hero-content">
     <h1><i class="fas fa-calculator" style="-webkit-text-fill-color:var(--primary);margin-left:0.4rem"></i> حاسبة المعدل الدراسي</h1>
@@ -859,7 +848,7 @@ function renderCalculator() {
     <div class="calc-header"><h2>${title}</h2><span class="formula-badge">${fLabel}</span></div>
     <div class="table-wrap"><table class="grade-table" id="gt"><thead><tr>${headers}</tr></thead><tbody>${rows}</tbody></table></div>
     ${formula==='high'?`<div class="bonus-section"><label>📖 نقطة تثمين المطالعة والمشاريع (ما فوق 10 فقط): <input class="grade-input" type="number" min="0" max="20" step="0.25" id="bonus" oninput="calc()" style="margin-right:0.5rem"></label></div>`:''}
-    <div class="result-bar"><span class="result-label">المعدل العام:</span><div><span class="result-value na" id="rv">——</span><span class="result-out-of" id="ro">/ 20</span></div><span id="rm"></span></div>
+    <div class="result-bar"><span class="result-label">المعدل العام:</span><div><span class="result-value na" id="rv">——</span><span class="result-out-of" id="ro">/ ${formula==='primary'?'10':'20'}</span></div><span id="rm"></span></div>
     <div class="action-btns"><button class="btn btn-secondary" onclick="reset()">🔄 مسح الكل</button></div>`;
   calcEl.classList.remove('hidden');
   calcEl.dataset.f = formula;
