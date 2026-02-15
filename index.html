@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta name="google-adsense-account" content="ca-pub-6195552819636371">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>حاسبة المعدل الدراسي - الجزائر | حساب معدل البكالوريا و البيام والابتدائي</title>
@@ -765,10 +764,10 @@ function renderSubSelector() {
 
   if (currentLevel === 'primary') {
     showSubButtons(Object.keys(DATA.primary.years), 'sub-btn', (y) => { currentSub = y; renderCalculator(); });
-    showInfo('معدل المادة = ((المراقبة المستمرة + الفرض) ÷ 2 + الاختبار × 2) ÷ 3 ثم × المعامل');
+    showInfo('النقاط على 10 — معدل المادة = ((المراقبة المستمرة + الفرض) ÷ 2 + الاختبار × 2) ÷ 3 ثم × المعامل');
   } else if (currentLevel === 'middle') {
     showSubButtons(Object.keys(DATA.middle.years), 'sub-btn', (y) => { currentSub = y; renderCalculator(); });
-    showInfo('معدل المادة = ((المراقبة المستمرة + الفرض) ÷ 2 + الاختبار × 2) ÷ 3 ثم × المعامل');
+    showInfo('النقاط على 20 — معدل المادة = ((المراقبة المستمرة + الفرض) ÷ 2 + الاختبار × 2) ÷ 3 ثم × المعامل');
   } else if (currentLevel === 'bem') {
     showInfo('شهادة التعليم المتوسط BEM — أدخل علامة كل مادة /20 ثم المعدل = Σ(علامة × معامل) ÷ Σمعاملات');
     currentSub = 'bem'; renderCalculator();
@@ -829,8 +828,9 @@ function renderCalculator() {
 
   let headers, rows;
   if (formula === 'primary' || formula === 'middle') {
-    headers = '<th>المادة</th><th>المعامل</th><th>م. مستمرة</th><th>الفرض</th><th>الاختبار</th><th>المعدل</th><th>×المعامل</th>';
-    rows = subjects.map((s,i) => `<tr><td>${s.name}</td><td class="coef-cell">${s.coef}</td><td><input class="grade-input" type="number" min="0" max="20" step="0.25" data-row="${i}" data-field="cont" oninput="calc()"></td><td><input class="grade-input" type="number" min="0" max="20" step="0.25" data-row="${i}" data-field="fard" oninput="calc()"></td><td><input class="grade-input" type="number" min="0" max="20" step="0.25" data-row="${i}" data-field="exam" oninput="calc()"></td><td class="subject-avg" id="a${i}">—</td><td class="subject-weighted" id="w${i}">—</td></tr>`).join('');
+    const maxG = formula === 'primary' ? 10 : 20;
+    headers = `<th>المادة</th><th>المعامل</th><th>م. مستمرة</th><th>الفرض</th><th>الاختبار</th><th>المعدل</th><th>×المعامل</th>`;
+    rows = subjects.map((s,i) => `<tr><td>${s.name}</td><td class="coef-cell">${s.coef}</td><td><input class="grade-input" type="number" min="0" max="${maxG}" step="0.25" data-row="${i}" data-field="cont" placeholder="/${maxG}" oninput="calc()"></td><td><input class="grade-input" type="number" min="0" max="${maxG}" step="0.25" data-row="${i}" data-field="fard" placeholder="/${maxG}" oninput="calc()"></td><td><input class="grade-input" type="number" min="0" max="${maxG}" step="0.25" data-row="${i}" data-field="exam" placeholder="/${maxG}" oninput="calc()"></td><td class="subject-avg" id="a${i}">—</td><td class="subject-weighted" id="w${i}">—</td></tr>`).join('');
   } else if (formula === 'high') {
     headers = '<th>المادة</th><th>المعامل</th><th>تقويم</th><th>فرض</th><th>ع.ت</th><th>اختبار</th><th>المعدل</th><th>×المعامل</th>';
     rows = subjects.map((s,i) => {
@@ -842,13 +842,13 @@ function renderCalculator() {
     rows = subjects.map((s,i) => `<tr><td>${s.name}</td><td class="coef-cell">${s.coef}</td><td><input class="grade-input" type="number" min="0" max="20" step="0.25" data-row="${i}" data-field="grade" oninput="calc()"></td><td class="subject-weighted" id="w${i}">—</td></tr>`).join('');
   }
 
-  const fLabel = {primary:'(م.م+فرض)÷2 ← (+اختبار×2)÷3',middle:'(م.م+فرض)÷2 ← (+اختبار×2)÷3',high:'÷4 أو ÷5 حسب المادة',bem:'علامة × معامل',bac:'علامة × معامل'}[formula];
+  const fLabel = {primary:'(م.م+فرض)÷2 ← (+اختبار×2)÷3 — /10',middle:'(م.م+فرض)÷2 ← (+اختبار×2)÷3',high:'÷4 أو ÷5 حسب المادة',bem:'علامة × معامل',bac:'علامة × معامل'}[formula];
 
   calcEl.innerHTML = `
     <div class="calc-header"><h2>${title}</h2><span class="formula-badge">${fLabel}</span></div>
     <div class="table-wrap"><table class="grade-table" id="gt"><thead><tr>${headers}</tr></thead><tbody>${rows}</tbody></table></div>
     ${formula==='high'?`<div class="bonus-section"><label>📖 نقطة تثمين المطالعة والمشاريع (ما فوق 10 فقط): <input class="grade-input" type="number" min="0" max="20" step="0.25" id="bonus" oninput="calc()" style="margin-right:0.5rem"></label></div>`:''}
-    <div class="result-bar"><span class="result-label">المعدل العام:</span><div><span class="result-value na" id="rv">——</span><span class="result-out-of">/ 20</span></div><span id="rm"></span></div>
+    <div class="result-bar"><span class="result-label">المعدل العام:</span><div><span class="result-value na" id="rv">——</span><span class="result-out-of" id="ro">/ 20</span></div><span id="rm"></span></div>
     <div class="action-btns"><button class="btn btn-secondary" onclick="reset()">🔄 مسح الكل</button></div>`;
   calcEl.classList.remove('hidden');
   calcEl.dataset.f = formula;
@@ -861,7 +861,8 @@ function gv(r, f) {
   if (!inp) return null;
   const v = parseFloat(inp.value);
   if (isNaN(v)) return null;
-  if (v < 0 || v > 20) { inp.classList.add('invalid'); return null; }
+  const max = parseFloat(inp.max) || 20;
+  if (v < 0 || v > max) { inp.classList.add('invalid'); return null; }
   inp.classList.remove('invalid');
   return v;
 }
@@ -893,17 +894,29 @@ function calc() {
     }
   }
   if (f === 'high') { const b = document.getElementById('bonus'); if (b) { const bv = parseFloat(b.value); if (!isNaN(bv) && bv > 10) tw += (bv - 10); } }
-  const rv = document.getElementById('rv'), rm = document.getElementById('rm');
+  const rv = document.getElementById('rv'), rm = document.getElementById('rm'), ro = document.getElementById('ro');
+  const isPrimary = f === 'primary';
+  const maxNote = isPrimary ? 10 : 20;
+  if (ro) ro.textContent = '/ ' + maxNote;
   if (tc > 0) {
     const m = Math.round(tw/tc*100)/100;
     rv.textContent = m.toFixed(2);
-    rv.className = 'result-value ' + (m >= 10 ? 'pass' : 'fail');
+    const passThreshold = isPrimary ? 5 : 10;
+    rv.className = 'result-value ' + (m >= passThreshold ? 'pass' : 'fail');
     let mt = '', mc = '';
-    if (m>=16) { mt='ممتاز 🌟'; mc='mention-excellent'; }
-    else if (m>=14) { mt='جيد جداً 🎯'; mc='mention-good'; }
-    else if (m>=12) { mt='جيد 👍'; mc='mention-ok'; }
-    else if (m>=10) { mt='مقبول ✓'; mc='mention-pass'; }
-    else { mt='غير مقبول ✗'; mc='mention-fail'; }
+    if (isPrimary) {
+      if (m>=8) { mt='ممتاز 🌟'; mc='mention-excellent'; }
+      else if (m>=7) { mt='جيد جداً 🎯'; mc='mention-good'; }
+      else if (m>=6) { mt='جيد 👍'; mc='mention-ok'; }
+      else if (m>=5) { mt='مقبول ✓'; mc='mention-pass'; }
+      else { mt='غير مقبول ✗'; mc='mention-fail'; }
+    } else {
+      if (m>=16) { mt='ممتاز 🌟'; mc='mention-excellent'; }
+      else if (m>=14) { mt='جيد جداً 🎯'; mc='mention-good'; }
+      else if (m>=12) { mt='جيد 👍'; mc='mention-ok'; }
+      else if (m>=10) { mt='مقبول ✓'; mc='mention-pass'; }
+      else { mt='غير مقبول ✗'; mc='mention-fail'; }
+    }
     rm.innerHTML = `<span class="result-mention ${mc}">${mt}</span>`;
   } else { rv.textContent = '——'; rv.className = 'result-value na'; rm.innerHTML = ''; }
 }
